@@ -2,7 +2,6 @@ import { useState } from 'react';
 import css from './ContactForm.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'redux/operation';
-import { getContacts } from 'redux/selector';
 import { nanoid } from '@reduxjs/toolkit';
 
 const ContactForm = () => {
@@ -13,7 +12,6 @@ const ContactForm = () => {
   const [number, setNumber] = useState('');
 
   const handlerInputChange = e => {
-    // Update the corresponding state based on the input name
     if (e.target.name === 'name') {
       setName(e.target.value);
     } else if (e.target.name === 'number') {
@@ -39,7 +37,6 @@ const ContactForm = () => {
 
     dispatch(addContact(contact));
 
-    // Reset the form inputs
     setName('');
     setNumber('');
   };
@@ -55,7 +52,6 @@ const ContactForm = () => {
           name="name"
           value={name}
           placeholder="Name"
-          // rest of your input properties...
         />
       </label>
       <label className={css.label}>
@@ -67,7 +63,6 @@ const ContactForm = () => {
           name="number"
           value={number}
           placeholder="380-9*-***-**-**"
-          // rest of your input properties...
         />
       </label>
 
